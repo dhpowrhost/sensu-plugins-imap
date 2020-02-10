@@ -4,9 +4,6 @@ cache:
 install:
 - bundle install
 rvm:
-- 2.0
-- 2.1
-- 2.2
 - 2.3.0
 - 2.4.1
 notifications:
@@ -20,16 +17,20 @@ script:
 - gem build sensu-plugins-imap.gemspec
 - gem install sensu-plugins-imap-*.gem
 deploy:
-  provider: rubygems
-  api_key:
-    secure: VGBeTUJ/inTILUHbemg0fwYbmmRxnDVBSniRNWklgV8tk6AGmdvPgbzF2zG9sWY1WpsX2HnkK0zLLWW7CQLwx49UdZgMdREiGOtkSetrltHTSYsv4cImgzAQiDmKb82s+gAeCU9QiNcHvUmmzSuTeUHw7h1HqKF6IO38zjbmGDU=
-  gem: sensu-plugins-imap
-  on:
-    tags: true
-    all_branches: true
-    rvm: 2.0
-    rvm: 2.1
-    rvm: 2.2
-    rvm: 2.3.0
-    rvm: 2.4.1
-    repo: sensu-plugins/sensu-plugins-imap
+  - provider: script
+    script: chmod +x bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh && bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh sensu-plugins-imap
+    skip_cleanup: true
+    on:
+      tags: true
+      all_branches: true
+      rvm: 2.4.1
+  - provider: rubygems
+    api_key:
+      secure: VGBeTUJ/inTILUHbemg0fwYbmmRxnDVBSniRNWklgV8tk6AGmdvPgbzF2zG9sWY1WpsX2HnkK0zLLWW7CQLwx49UdZgMdREiGOtkSetrltHTSYsv4cImgzAQiDmKb82s+gAeCU9QiNcHvUmmzSuTeUHw7h1HqKF6IO38zjbmGDU=
+    gem: sensu-plugins-imap
+    on:
+      tags: true
+      all_branches: true
+      rvm: 2.3.0
+      rvm: 2.4.1
+      repo: sensu-plugins/sensu-plugins-imap
