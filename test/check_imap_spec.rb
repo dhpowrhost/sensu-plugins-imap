@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../bin/check-imap.rb'
 
 # Class Stub for the check
