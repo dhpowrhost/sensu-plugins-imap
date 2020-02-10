@@ -1,3 +1,7 @@
+AllCops:
+  TargetRubyVersion: 2.4
+  Exclude:
+    - 'bin/check-imap.rb'  
 
 MethodLength:
   Max: 200
@@ -8,6 +12,9 @@ LineLength:
 AbcSize:
   Max: 100
 
+BlockLength:
+  Max: 35
+  
 FileName:
   Enabled: false
 
@@ -27,4 +34,7 @@ RegexpLiteral:
   Enabled: false
 
 Style/Documentation:
+  Enabled: false
+  
+IfUnlessModifier:
   Enabled: false
