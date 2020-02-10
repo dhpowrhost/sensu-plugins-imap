@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
                               for monitoring of service connectivity.'
   s.email                  = '<sensu-users@googlegroups.com>'
   s.executables            = Dir.glob('bin/**/*.rb').map { |file| File.basename(file) }
-  s.files                  = Dir.glob('{bin,lib}/**/*') + %w(LICENSE README.md CHANGELOG.md)
+  s.files                  = Dir.glob('{bin,lib}/**/*') + %w[LICENSE README.md CHANGELOG.md]
   s.homepage               = 'https://github.com/sensu-plugins/sensu-plugins-imap'
   s.license                = 'MIT'
   s.metadata               = { 'maintainer'         => 'sensu-plugin',
